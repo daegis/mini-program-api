@@ -26,8 +26,8 @@ public class AppController {
         color.setValue(20);
         NaviBar naviBar = new NaviBar();
         naviBar.setTopTextColor(color);
-        naviBar.setTitle("啥都卖中心");
-        naviBar.setTopBackgroundColor("#00a92c");
+        naviBar.setTitle("卖花花");
+        naviBar.setTopBackgroundColor("#965456");
         AppBase appBase = new AppBase(naviBar);
         return ApiResponse.success(appBase);
     }
