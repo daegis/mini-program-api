@@ -1,5 +1,6 @@
 package cn.aegisa.bai.mg.interceptor;
 
+import cn.aegisa.bai.mg.vo.user.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -20,6 +21,12 @@ public class UserTokenInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getParameter("token");
         log.info("前台传入token：{}", token);
+        if ("aaa".equals(token)) {
+            UserInfo userInfo = new UserInfo();
+            userInfo.setId(1);
+            userInfo.setName("Lily");
+            UserContext.setUser(userInfo);
+        }
         return true;
     }
 
@@ -30,6 +37,6 @@ public class UserTokenInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-
+        UserContext.finish();
     }
 }

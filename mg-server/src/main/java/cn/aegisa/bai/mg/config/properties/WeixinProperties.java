@@ -13,4 +13,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class WeixinProperties {
     private String appId;
     private String appSecret;
+    private String loginUrl;
 }
