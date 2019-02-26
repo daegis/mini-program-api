@@ -1,8 +1,6 @@
-package cn.aegisa.bai.mg.vo;
+package cn.aegisa.bai.mg.vo.product;
 
 import lombok.Data;
-
-import java.util.List;
 
 /**
  * @author xianyingda@guazi.com
@@ -10,8 +8,9 @@ import java.util.List;
  * @since 2019-02-16 21:27
  */
 @Data
-public class Category {
+public class Product {
     private Integer id;
     private String name;
-    private List<Product> productList;
+    private String imgUrl;
+    private Integer price;
 }

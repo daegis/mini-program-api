@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
         LoginResult result = new LoginResult();
         if (StringUtils.isEmpty(openid)) {
             result.setSuccess(false);
+            log.info("微信登录失败：{}", wxResponse);
             return result;
         }
         result.setSuccess(true);

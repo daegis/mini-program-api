@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 /**
  * @author xianyingda@guazi.com
@@ -28,12 +27,6 @@ public class UserController {
     @RequestMapping("/login")
     @ResponseBody
     public Object doLogin(HttpServletRequest request) {
-        Map<String, String[]> map = request.getParameterMap();
-        for (Map.Entry<String, String[]> entry : map.entrySet()) {
-            String key = entry.getKey();
-            String[] value = entry.getValue();
-            System.out.println(key + ":" + value[0]);
-        }
         String code = request.getParameter("code");
         LoginResult result = userService.doLogin(code);
         if (result.isSuccess()) {
