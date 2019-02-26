@@ -41,11 +41,13 @@ public class ProductController {
         d1.setId(101);
         d1.setName("菊花");
         d1.setParentId(1);
+        d1.setImgUrl("https://cdn.aegisa.cn/27b84489ac804173a36d6e80fc4737e9a.jpg");
 
         Category d2 = new Category();
         d2.setId(102);
         d2.setName("月季");
         d2.setParentId(1);
+        d2.setImgUrl("https://cdn.aegisa.cn/c7d68c6853414ab99665db4b3e5a9546i.jpg");
 
         children.add(d1);
         children.add(d2);
