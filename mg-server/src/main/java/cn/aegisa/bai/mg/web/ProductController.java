@@ -37,7 +37,6 @@ public class ProductController {
     public ApiResponse getProductList(HttpServletRequest request) {
         String categoryId = request.getParameter("category_id");
         log.info("查询商品列表的categoryId：{}", categoryId);
-
         return ApiResponse.success(null);
     }
 
