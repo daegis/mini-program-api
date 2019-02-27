@@ -1,5 +1,6 @@
 package cn.aegisa.bai.mg.vo.base;
 
+import cn.aegisa.bai.model.BannerImg;
 import lombok.Data;
 
 import java.util.Map;
