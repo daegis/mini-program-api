@@ -1,5 +1,6 @@
 package cn.aegisa.bai.mg.service;
 
+import cn.aegisa.bai.mg.vo.base.AppBase;
 import cn.aegisa.bai.mg.vo.base.IndexInfo;
 
 /**
@@ -9,4 +10,6 @@ import cn.aegisa.bai.mg.vo.base.IndexInfo;
  */
 public interface AppService {
     IndexInfo getAppIndexInfo();
+
+    AppBase getAppBaseInfo();
 }

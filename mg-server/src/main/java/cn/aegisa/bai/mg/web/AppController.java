@@ -2,9 +2,7 @@ package cn.aegisa.bai.mg.web;
 
 import cn.aegisa.bai.mg.service.AppService;
 import cn.aegisa.bai.mg.vo.base.AppBase;
-import cn.aegisa.bai.mg.vo.base.Color;
 import cn.aegisa.bai.mg.vo.base.IndexInfo;
-import cn.aegisa.bai.mg.vo.base.NaviBar;
 import cn.aegisa.bai.mg.vo.common.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +24,8 @@ public class AppController {
 
     @RequestMapping("/base")
     public ApiResponse getBaseInfo() {
-        Color color = new Color();
-        color.setText("#ffffff");
-        color.setValue(20);
-        NaviBar naviBar = new NaviBar();
-        naviBar.setTopTextColor(color);
-        naviBar.setTitle("卖花花");
-        naviBar.setTopBackgroundColor("#965456");
-        AppBase appBase = new AppBase(naviBar);
-        return ApiResponse.success(appBase);
+        AppBase base = appService.getAppBaseInfo();
+        return ApiResponse.success(base);
     }
 
     @RequestMapping("/index")

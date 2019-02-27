@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="AppPropertyMapper">
+	<resultMap id="BaseResultMap" type="cn.aegisa.bai.model.AppProperty">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="prop_key" property="propKey" jdbcType="VARCHAR" />
+		<result column="prop_value" property="propValue" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Where">
+		<if test="id != null"> and id= #{id}</if>	
+		<if test="propKey != null and propKey !=''"> and prop_key= #{propKey}</if>
+		<if test="propValue != null and propValue !=''"> and prop_value= #{propValue}</if>
+		<if test="createTime != null"> and create_time= #{createTime}</if>	
+	</sql>
+	<sql id="Base_Column_List">
+		id ,
+		prop_key ,
+		prop_value ,
+		create_time 
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from app_property
+		where
+		id = #{id,jdbcType=INTEGER}
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from app_property
+		where
+		id = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<insert id="insertSelective" parameterType="cn.aegisa.bai.model.AppProperty">
+		insert into app_property
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">id,</if>	
+			<if test="propKey != null and propKey !=''">prop_key,</if>
+			<if test="propValue != null and propValue !=''">prop_value,</if>
+			<if test="createTime != null">create_time,</if>	
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="propKey != null and propKey !=''">
+				#{propKey,jdbcType=VARCHAR},
+			</if>
+			<if test="propValue != null and propValue !=''">
+				#{propValue,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			
+		</trim>
+	</insert>
+
+	<update id="updateByPrimaryKeySelective" parameterType="cn.aegisa.bai.model.AppProperty">
+		update app_property
+		<set>
+			<if test="propKey != null and propKey !=''">
+				prop_key= #{propKey,jdbcType=VARCHAR},
+			</if>
+			<if test="propValue != null and propValue !=''">
+				prop_value= #{propValue,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				create_time= #{createTime,jdbcType=TIMESTAMP}
+			</if>
+		</set>
+		where
+		id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="getAll" resultMap="BaseResultMap" parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from app_property where 1=1
+		<include refid="Base_Where" />
+	</select>
+	<select id="pageCount" resultType="java.lang.Integer" parameterType="map">
+		select count(1) from app_property where 1=1
+		<include refid="Base_Where" />
+	</select>
+	<select id="pageData" resultMap="BaseResultMap" parameterType="map">
+		select
+		<include refid="Base_Column_List" />
+		from app_property where 1=1
+		<include refid="Base_Where" />
+	</select>
+
+	<select id="selectByIds" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from app_property where id in
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+</mapper>
