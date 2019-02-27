@@ -11,11 +11,32 @@
  Target Server Version : 50642
  File Encoding         : 65001
 
- Date: 27/02/2019 19:53:16
+ Date: 27/02/2019 20:11:49
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for app_property
+-- ----------------------------
+DROP TABLE IF EXISTS `app_property`;
+CREATE TABLE `app_property` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `prop_key` varchar(64) NOT NULL,
+  `prop_value` varchar(128) NOT NULL,
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ddd` (`prop_key`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of app_property
+-- ----------------------------
+BEGIN;
+INSERT INTO `app_property` VALUES (1, 'app_name', '卖花花草草', '2019-02-27 20:06:10');
+INSERT INTO `app_property` VALUES (2, 'top_background_color', '#965456', '2019-02-27 20:06:30');
+COMMIT;
 
 -- ----------------------------
 -- Table structure for banner_img
