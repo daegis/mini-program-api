@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,7 @@ import java.util.List;
 @RequestMapping("/product")
 public class ProductController {
 
-    @RequestMapping("/list")
+    @RequestMapping("/category/list")
     @ResponseBody
     public ApiResponse getCategoryList() {
         List<Category> categories = new ArrayList<>();
@@ -55,6 +56,15 @@ public class ProductController {
         c1.setChild(children);
 
         return ApiResponse.success(categories);
+    }
+
+    @RequestMapping("/list")
+    @ResponseBody
+    public ApiResponse getProductList(HttpServletRequest request) {
+        String categoryId = request.getParameter("category_id");
+        log.info("查询商品列表的categoryId：{}", categoryId);
+
+        return ApiResponse.success(null);
     }
 
 }
