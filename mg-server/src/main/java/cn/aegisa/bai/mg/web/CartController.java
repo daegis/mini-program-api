@@ -1,8 +1,7 @@
 package cn.aegisa.bai.mg.web;
 
-import cn.aegisa.bai.mg.interceptor.UserContext;
+import cn.aegisa.bai.mg.interceptor.LoginRequired;
 import cn.aegisa.bai.mg.vo.common.ApiResponse;
-import cn.aegisa.bai.mg.vo.user.UserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +19,8 @@ public class CartController {
 
     @RequestMapping("/list")
     @ResponseBody
+    @LoginRequired
     public ApiResponse getCartList() {
-        UserInfo user = UserContext.getUser();
-        if (user == null) {
-            return ApiResponse.fail("用户未登录");
-        }
         return ApiResponse.success("pending");
     }
 }
