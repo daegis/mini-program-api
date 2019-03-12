@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author xianyingda@guazi.com
+ * @author daegis@yeah.net
  * @serial
  * @since 2019-02-26 14:05
  */

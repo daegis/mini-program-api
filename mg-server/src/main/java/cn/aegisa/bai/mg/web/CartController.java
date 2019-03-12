@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @author xianyingda@guazi.com
+ * @author daegis@yeah.net
  * @serial
  * @since 2019-02-26 14:10
  */

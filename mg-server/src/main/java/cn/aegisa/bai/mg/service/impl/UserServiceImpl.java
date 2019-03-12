@@ -12,7 +12,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * @author xianyingda@guazi.com
+ * @author daegis@yeah.net
  * @serial
  * @since 2019-02-26 14:35
  */

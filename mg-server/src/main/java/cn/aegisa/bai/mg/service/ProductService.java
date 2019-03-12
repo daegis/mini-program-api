@@ -5,7 +5,7 @@ import cn.aegisa.bai.model.Category;
 import java.util.List;
 
 /**
- * @author xianyingda@guazi.com
+ * @author daegis@yeah.net
  * @serial
  * @since 2019-02-27 18:51
  */
